@@ -1,0 +1,52 @@
+/* Reset some default styles */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set background image */
+body {
+  background-image: url("../voting/uploads/voting ing.jpg");
+  background-size: cover;
+}
+.sidebar ul li a:hover {
+  background-color: #666;
+}
+.sidebar ul li a {
+  font-size: 25px; /* Change the font size to your desired value */
+}
+
+/* Sidebar styles */
+.sidebar {
+  background-color: #333;
+  color: #fff;
+  width: 200px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  padding: 10px;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Content styles */
+.content {
+  margin-left: 200px;
+  padding: 20px;
+}
+
+ 
+ 
