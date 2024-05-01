@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Service Providers</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <h1>Search for Common Service Providers</h1>
+    <input type="text" id="searchInput" placeholder="Search for common service providers...">
+    <ul id="serviceList"></ul>
+
+    <div id="serviceDetails"></div>
+
+    <script>
+        // Function to fetch common service provider names from the server
+        function fetchServiceProviders() {
+            fetch('http://localhost:3000/v1/commonserviceproviders')
+                .then(response => response.json())
+                .then(data => {
+                    const serviceList = document.getElementById('serviceList');
+                    serviceList.innerHTML = '';
+                    data.commonServiceProviders.forEach(serviceName => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = serviceName;
+                        listItem.addEventListener('click', () => fetchServiceProviderDetails(serviceName));
+                        serviceList.appendChild(listItem);
+                    });
+                })
+                .catch(error => console.error('Error fetching service providers:', error));
+        }
+
+        // Function to fetch service provider details
+        function fetchServiceProviderDetails(serviceName) {
+            fetch(`http://localhost:3000/v1/serviceprovider/${serviceName}`)
+                .then(response => response.json())
+                .then(data => {
+                    const serviceProvider = data.serviceProvider;
+                    const serviceDetails = document.getElementById('serviceDetails');
+                    serviceDetails.innerHTML = `
+                        <h2>${serviceProvider.store_name}</h2>
+                        <p><strong>Pincode:</strong> ${serviceProvider.pincode}</p>
+                        <p><strong>City:</strong> ${serviceProvider.city}</p>
+                        <p><strong>State:</strong> ${serviceProvider.state}</p>
+                        <p><strong>Address:</strong> ${serviceProvider.address}</p>
+                        <p><strong>Service Name:</strong> ${serviceProvider.service_name}</p>
+                    `;
+                })
+                .catch(error => console.error('Error fetching service provider details:', error));
+        }
+
+        // Call fetchServiceProviders() when the page loads
+        fetchServiceProviders();
+
+        // Add event listener to update search results as user types
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchQuery = this.value.toLowerCase();
+            const serviceListItems = document.querySelectorAll('#serviceList li');
+            serviceListItems.forEach(item => {
+                if (item.textContent.toLowerCase().includes(searchQuery)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
