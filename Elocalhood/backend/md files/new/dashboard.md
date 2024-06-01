@@ -1,15 +1,13 @@
 # Admin Dashboard API
-
+```
 POST  /v1/Dashboard
-
+```
 ###  Request Headers
-
+```
 Content-Type: application/json
-
-## ServiceProviders
-
+```
 ### Request Body
-json
+```json
 {
     "Order ID":"string",
     "Service":"string",
@@ -17,7 +15,9 @@ json
     "Date":"",
     "OrderStatus":"string"
 }
-
+```
+# Response
+```
 201 - Created
 
 Body
