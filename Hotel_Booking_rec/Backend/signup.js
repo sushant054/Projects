@@ -4,6 +4,9 @@ const bodyParser = require('body-parser');
 const Joi = require('joi');
 const app = express();
 const port = process.env.PORT || 3000;
+const cors = require('cors');
+app.use(cors());//allows request from any origin 
+
 
 app.use(bodyParser.json());
 
@@ -25,7 +28,6 @@ app.post('/v1/signup', (req, res) => {
     if (error) {
         return res.status(400).json({ error: error.details[0].message });
     }
-
     const { Name, UserName, Password, PhoneNumber, Email } = req.body;
 
     mysql.query('SELECT * FROM users WHERE email = ?', [Email], (err, results) => {

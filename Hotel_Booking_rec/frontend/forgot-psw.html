@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="./css/style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h2>Forgot Password</h2>
+        <form id="forgotPasswordForm">
+            <div class="input-group">
+                <label for="username">Enter your Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <button type="submit">Submit</button>
+            <div id="error" class="error"></div>
+            <div id="message" class="message"></div>
+        </form>
+
+        <!-- Update Password Form (Initially hidden) -->
+        <div id="updatePasswordContainer" style="display: none;">
+            <h2>Update Password</h2>
+            <form id="updatePasswordForm">
+                <input type="hidden" id="usernameForUpdate" name="username">
+                <div class="input-group">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword" name="newPassword" required>
+                </div>
+                <button type="submit">Update Password</button>
+                <div id="updateError" class="error"></div>
+                <div id="updateMessage" class="message"></div>
+            </form>
+        </div>
+
+        <div class="links">
+            <a href="login.html">Back to Login</a>
+        </div>
+    </div>
+    <script src="forgot-psw.js"></script>
+</body>
+</html>
