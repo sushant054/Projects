@@ -1,0 +1,15 @@
+1. Login
+{
+    "user_id": 1,
+    "Password": "Passw0rd!"
+}
+
+2. Signup
+{
+    "Name": "Sushant",
+    "UserName": "sushh54",
+    "Password": "Pass@123",
+    "PhoneNumber": "7758007166",
+    "Email": "sushantnalage@gmail.com"
+}
+
