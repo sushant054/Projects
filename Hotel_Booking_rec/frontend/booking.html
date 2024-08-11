@@ -3,51 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking</title>
-    <link rel="stylesheet" href="./css/booking.css">
+    <title>Booking Page</title>
+    <link rel="stylesheet" href="css/booking.css">
 </head>
 <body>
     <div class="container">
-        <h2>Book Your Stay</h2>
-        <form action="/submit-booking" method="post">
-            <div class="form-group">
-                <label for="user_name">User Name:</label>
-                <input type="text" id="user_name" name="user_name" required>
-            </div>
-            <div class="form-group">
-                <label for="hotel_id">Hotel ID:</label>
-                <input type="text" id="hotel_id" name="hotel_id" required>
-            </div>
-            <div class="form-group">
-                <label for="check_in_date">Check-in:</label>
-                <input type="date" id="check_in_date" name="check_in_date" required>
-            </div>
-            <div class="form-group">
-                <label for="check_out_date">Check-out:</label>
-                <input type="date" id="check_out_date" name="check_out_date" required>
-            </div>
-            <div class="form-group">
-                <label for="number_of_guests">Guests:</label>
-                <input type="number" id="number_of_guests" name="number_of_guests" min="1" required>
-            </div>
-            <div class="form-group">
-                <label for="room_type">Room:</label>
-                <select id="room_type" name="room_type">
-                    <option value="single">Single</option>
-                    <option value="double">Double</option>
-                    <option value="suite">Suite</option>
+        <h1>Booking Page</h1>
+        
+        <div class="form-container">
+            <h2>Add New Booking</h2>
+            <form id="booking-form">
+                <!-- <label for="user_id">User ID:</label>
+                <input type="number" id="user_id" name="user_id" required> -->
+                
+                <label for="hotel_name">Hotel Name:</label>
+                <input type="text" id="hotel_name" name="hotel_name" required>
+                
+                <label for="check_in">Check-In Date:</label>
+                <input type="date" id="check_in" name="check_in" required>
+                
+                <label for="check_out">Check-Out Date:</label>
+                <input type="date" id="check_out" name="check_out" required>
+                
+                <label for="guest">Number of Guests:</label>
+                <input type="number" id="guest" name="guest" required>
+                
+                <label for="room_type">Room Type:</label>
+                <select id="room_type" name="room_type" required>
+                    <option value="Single">Single</option>
+                    <option value="Double">Double</option>
+                    <option value="Suite">Suite</option>
                 </select>
-            </div>
-            <div class="form-group">
-                <label for="total_amount">Total:</label>
-                <input type="text" id="total_amount" name="total_amount" required>
-            </div>
-            <div class="form-group">
-                <label for="special_requests">Requests:</label>
-                <textarea id="special_requests" name="special_requests"></textarea>
-            </div>
-            <button type="submit">Book Now</button>
-        </form>
+               
+                <label for="payment">Payment (Optional):</label>
+                <input type="number" step="0.01" id="payment" name="payment">
+                
+                <div class="button-container">
+                    <button type="submit" id="save-button">Save</button>
+                    <button type="button" id="Complete">Complete</button>
+                </div>
+            </form>
+        </div>  
     </div>
+    <script src="booking.js"></script>
 </body>
 </html>

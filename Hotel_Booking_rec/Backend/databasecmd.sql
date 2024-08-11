@@ -8,12 +8,18 @@ CREATE TABLE users (
     email VARCHAR(100) NOT NULL UNIQUE
 );
 -- 
---Hotel
-CREATE TABLE Hotels (
-    hotel_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    location VARCHAR(255) NOT NULL,
-    rating FLOAT NOT NULL,
-    description TEXT,
-    price_per_night FLOAT NOT NULL
+ 
+--Bookings
+ 
+---------
+CREATE TABLE Bookings (
+    booking_id INT AUTO_INCREMENT PRIMARY KEY,
+    hotel_name VARCHAR(100) NOT NULL,
+    check_in DATE NOT NULL,
+    check_out DATE NOT NULL,
+    guest INT NOT NULL,
+    room_type VARCHAR(50) NOT NULL,
+    payment DECIMAL(10, 2),
+    status ENUM('draft', 'complete') NOT NULL
 );
+

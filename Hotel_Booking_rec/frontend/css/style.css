@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: url('../images/hotelbg.jpg') no-repeat center center fixed;
+    background: url('../images/h7.jpg') no-repeat center center fixed;
     background-size: cover;
     background-color: #f4f4f4;
     display: flex;
@@ -52,7 +52,7 @@ button {
 }
 
 button:hover {
-    background-color: #4cae4c;
+    background-color: #526b72;
 }
 
 .error {

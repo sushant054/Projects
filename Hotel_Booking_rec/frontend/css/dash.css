@@ -4,12 +4,13 @@ body {
     padding: 0;
     box-sizing: border-box;
     display: flex;
+    background: url('../images/h7.jpg') no-repeat center center fixed;
+    background-size: cover;
     background-color: #f7f7f7;
 }
-
 .sidebar {
     width: 250px;
-    background-color: #333;
+    background: linear-gradient(145deg, #333, #444);
     height: 100vh;
     position: fixed;
     top: 0;
@@ -18,14 +19,18 @@ body {
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    transition: width 0.3s ease-in-out;
 }
 
 .sidebar-logo a {
     color: #fff;
     text-decoration: none;
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .sidebar-links {
@@ -37,28 +42,47 @@ body {
 
 .sidebar-links li {
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .sidebar-links a {
     color: #fff;
     text-decoration: none;
     padding: 15px;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     width: 100%;
-    text-align: center;
     font-size: 18px;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+    border-radius: 8px;
 }
 
 .sidebar-links a:hover {
     background-color: #575757;
+    padding-left: 25px;
 }
 
 .sidebar-links a.active {
-    background-color: #333;
+    background-color: #444;
     color: #fff;
-    border-left: 5px solid #fff;
+    border-left: 5px solid #00aaff;
+    padding-left: 20px;
 }
+
+.sidebar-links i {
+    margin-right: 15px;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-links a:hover i {
+    transform: scale(1.1);
+}
+
+.sidebar-links a.active i {
+    color: #00aaff;
+}
+
 
 .main-content {
     margin-left: 250px;
@@ -71,9 +95,10 @@ body {
     display: flex;
     justify-content: center;
     padding: 20px 0;
-    background-color: #f4f4f4;
-    border-bottom: 1px solid #ddd;
+    background-color: rgba(7, 7, 7, 0); /* Set transparency with the alpha value (0.5) */
+    border-bottom: 1px solid rgba(221, 221, 221, 0.5); /* Make the border slightly transparent */
 }
+
 
 #search-bar {
     padding: 8px;
@@ -139,7 +164,7 @@ body {
 
 .btn {
     background-color: #333;
-    color: #fff;
+    color: #ffffff;
     border: none;
     padding: 8px 16px;
     font-size: 16px;
@@ -149,4 +174,12 @@ body {
 
 .btn:hover {
     background-color: #575757;
+}
+
+#hotel-details {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }

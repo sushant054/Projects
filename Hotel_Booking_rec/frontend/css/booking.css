@@ -1,58 +1,71 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background-color: #99bdc9;
+    background: url('../images/h3.png') no-repeat center center fixed;
+    background-size: cover;
     margin: 0;
+    padding: 0;
 }
 
 .container {
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+h1 {
     text-align: center;
-    margin-bottom: 10px;
     color: #333;
 }
 
-.form-group {
-    margin-bottom: 10px;
+.form-container, .bookings-list {
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
 }
 
 label {
-    display: block;
-    margin-bottom: 5px;
-    color: #666;
-    font-size: 14px;
+    margin-top: 10px;
 }
 
-input, select, textarea {
-    width: 100%;
-    padding: 5px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
+input, select {
+    padding: 10px;
+    margin-top: 5px;
 }
 
-button[type="submit"] {
-    width: 100%;
-    padding: 5px;
-    background-color: #4ea2e7;
+button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
     border: none;
-    color: white;
-    border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
 }
 
-button[type="submit"]:hover {
-    background-color: #4cae4c;
+button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
 }

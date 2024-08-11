@@ -1,30 +1,57 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+module.exports = (app, mysql) => {
+    // Fetch all bookings
+    app.get('/api/bookings', (req, res) => {
+        const sql = 'SELECT * FROM Bookings';
+        mysql.query(sql, (err, results) => {
+            if (err) {
+                console.error('Error fetching bookings:', err);
+                return res.status(500).json({ error: 'Failed to fetch bookings' });
+            }
+            res.json(results);
+        });
+    });
 
-const app = express();
-const port = 3000;
+    // Add a new booking
+    app.post('/api/bookings', (req, res) => {
+        const { hotel_name, check_in, check_out, guest, room_type, payment, status } = req.body;
 
-app.use(cors()); // Allows requests from any origin
-app.use(bodyParser.json());
+        // Ensure all required fields are provided
+        if (!hotel_name || !check_in || !check_out || !guest || !room_type) {
+            return res.status(400).json({ error: 'Missing required fields' });
+        }
 
-// Middleware to parse incoming form data
-app.use(bodyParser.urlencoded({ extended: true }));
+        const sql = `
+            INSERT INTO Bookings (hotel_name, check_in, check_out, guest, room_type, payment, status)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        `;
+        mysql.query(sql, [hotel_name, check_in, check_out, guest, room_type, payment || null, status || 'draft'], (err) => {
+            if (err) {
+                console.error('Error adding booking:', err);
+                return res.status(500).json({ error: 'Failed to add booking' });
+            }
+            res.status(201).json({ message: 'Booking added successfully' });
+        });
+    });
 
-// Serve static files from the 'frontend' directory
-app.use(express.static('frontend'));
+    // Update the status of a booking (This endpoint assumes status changes are made upon creation or specific requests)
+    app.post('/api/update-status', (req, res) => {
+        const { hotel_name, check_in, check_out, guest, room_type, payment, status } = req.body;
 
-// Handle form submission
-app.post('/submit-booking', (req, res) => {
-    const { user_name, hotel_id, check_in_date, check_out_date, number_of_guests, room_type, total_amount, special_requests } = req.body;
+        // Ensure all required fields are provided
+        if (!hotel_name || !check_in || !check_out || !guest || !room_type || !status) {
+            return res.status(400).json({ error: 'Missing required fields' });
+        }
 
-    // Here, you can save the booking data to a database or perform other operations
-    console.log('Booking Details:', req.body);
-
-    // For now, we'll just send a response back to the user
-    res.send(`Booking successful for ${user_name} at hotel ${hotel_id}.`);
-});
-
-// Start the server
-app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
-});
+        const sql = `
+            INSERT INTO Bookings (hotel_name, check_in, check_out, guest, room_type, payment, status)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        `;
+        mysql.query(sql, [hotel_name, check_in, check_out, guest, room_type, payment || null, status], (err) => {
+            if (err) {
+                console.error('Error adding booking:', err);
+                return res.status(500).json({ error: 'Failed to add booking' });
+            }
+            res.status(201).json({ message: 'Booking added successfully with status' });
+        });
+    });
+};

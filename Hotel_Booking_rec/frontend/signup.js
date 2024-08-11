@@ -23,7 +23,7 @@ document.getElementById('signupForm').addEventListener('submit', async function(
         if (response.ok) {
             // Registration successful
             alert('Registration successful!');
-            window.location.href = './frontend/login.html';
+            window.location.href = './login.html';
         } else {
             // Show error message
             document.getElementById('error').textContent = result.error;

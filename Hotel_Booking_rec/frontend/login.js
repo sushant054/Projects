@@ -17,10 +17,14 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
 
         const result = await response.json();
 
+        console.log('Response Status:', response.status);
+        console.log('Response OK:', response.ok);
+        console.log('Result:', result);
+
         if (response.ok) {
             // Successful login
             alert('Login successful!');
-            window.location.href = '/dashboard.html'; // Redirect to a dashboard or another page
+            window.location.href = './dashboard.html'; // Adjust path as needed
         } else {
             // Show error message
             document.getElementById('error').textContent = result.error;

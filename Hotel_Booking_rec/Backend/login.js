@@ -1,13 +1,5 @@
-const express = require('express');
-const mysql = require('./database'); // Import database connection
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const app = express();
-const PORT = 3000;
-
-app.use(cors()); // Allows requests from any origin
-app.use(bodyParser.json());
-
+module.exports = function(app, mysql) {
+    
 // Login endpoint
 app.post('/v1/login', (req, res) => {
     const { username, password } = req.body;
@@ -85,7 +77,4 @@ function hashPassword(password) {
     return password; // Placeholder - Replace with actual hashing
 }
 
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+};
