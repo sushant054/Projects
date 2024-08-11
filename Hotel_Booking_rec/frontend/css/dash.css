@@ -163,8 +163,8 @@ body {
 }
 
 .btn {
-    background-color: #333;
-    color: #ffffff;
+    background-color: #6d6d6d;
+    color: #3a3838;
     border: none;
     padding: 8px 16px;
     font-size: 16px;
@@ -173,7 +173,7 @@ body {
 }
 
 .btn:hover {
-    background-color: #575757;
+    background-color: #575454;
 }
 
 #hotel-details {

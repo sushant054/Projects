@@ -8,7 +8,7 @@
 6. Download and Run the Project
 
 ## List of APIs
-### API Documentation
+## API Documentation
  here i have created these APIs
 1. Login API
 2. Signup API
@@ -58,7 +58,7 @@ I have good enough knowledge of Node.js, which I demonstrated in my academic pro
 1. Clone the Repository
 2. Install Dependencies
 3. Set Up the Database - To set up database refer file ./Backend/databasesecmd.sql   
-4. Run & Access the Application - to run backend api use main.js file (nodemon main or node main.js)
+4. Run & Access the Application -
 Open your browser & navigate to http://localhost:3000
 
 ## Visit My Other Projects 

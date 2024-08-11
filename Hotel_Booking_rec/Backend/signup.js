@@ -1,6 +1,7 @@
-module.exports = function(app, mysql) {
-    const Joi = require('joi');
+const bcrypt = require('bcrypt'); // Import bcrypt
+const Joi = require('joi');
 
+module.exports = function(app, mysql) {
     const userSchema = Joi.object({
         Name: Joi.string().pattern(/^[a-zA-Z]+$/).min(3).max(30).required(),
         UserName: Joi.string().alphanum().min(3).max(30).required(),
@@ -19,6 +20,7 @@ module.exports = function(app, mysql) {
         if (error) {
             return res.status(400).json({ error: error.details[0].message });
         }
+        
         const { Name, UserName, Password, PhoneNumber, Email } = req.body;
 
         mysql.query('SELECT * FROM users WHERE email = ?', [Email], (err, results) => {
@@ -31,19 +33,27 @@ module.exports = function(app, mysql) {
                 return res.status(409).json({ error: 'Email already exists' });
             }
 
-            mysql.query(
-                'INSERT INTO users (name, username, password, phone_number, email) VALUES (?, ?, ?, ?, ?)',
-                [Name, UserName, Password, PhoneNumber, Email],
-                (err, results) => {
-                    if (err) {
-                        console.error('MySQL error:', err);
-                        return res.status(500).json({ error: 'Internal Server Error' });
-                    }
-
-                    const userId = results.insertId;
-                    res.status(201).json({ user_id: userId, username: UserName });
+            // Hash the password before storing
+            bcrypt.hash(Password, 10, (err, hashedPassword) => {
+                if (err) {
+                    console.error('Error hashing password:', err);
+                    return res.status(500).json({ error: 'Internal Server Error' });
                 }
-            );
+
+                mysql.query(
+                    'INSERT INTO users (name, username, password, phone_number, email) VALUES (?, ?, ?, ?, ?)',
+                    [Name, UserName, hashedPassword, PhoneNumber, Email],
+                    (err, results) => {
+                        if (err) {
+                            console.error('MySQL error:', err);
+                            return res.status(500).json({ error: 'Internal Server Error' });
+                        }
+
+                        const userId = results.insertId;
+                        res.status(201).json({ user_id: userId, username: UserName });
+                    }
+                );
+            });
         });
     });
 };

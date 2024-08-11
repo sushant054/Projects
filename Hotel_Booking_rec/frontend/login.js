@@ -1,36 +1,38 @@
-document.getElementById('loginForm').addEventListener('submit', async function(event) {
-    event.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('login-form'); // Adjusted to match HTML
 
-    const formData = {
-        username: document.getElementById('username').value,
-        password: document.getElementById('password').value
-    };
+    if (!form) {
+        console.error('Login form not found');
+        return;
+    }
 
-    try {
-        const response = await fetch('http://localhost:3000/v1/login', {
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        fetch('http://localhost:3000/v1/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(formData)
+            body: JSON.stringify({ username, password })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.token) {
+                localStorage.setItem('token', data.token); // Store token in local storage
+                // Optionally, redirect the user to another page
+                window.location.href = './dashboard.html'; // Example redirect
+            } else {
+                // Handle errors
+                document.getElementById('error').textContent = data.error || 'Login failed';
+            }
+        })
+        .catch(error => {
+            console.error('Error during login:', error);
+            document.getElementById('error').textContent = 'An error occurred. Please try again.';
         });
-
-        const result = await response.json();
-
-        console.log('Response Status:', response.status);
-        console.log('Response OK:', response.ok);
-        console.log('Result:', result);
-
-        if (response.ok) {
-            // Successful login
-            alert('Login successful!');
-            window.location.href = './dashboard.html'; // Adjust path as needed
-        } else {
-            // Show error message
-            document.getElementById('error').textContent = result.error;
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        document.getElementById('error').textContent = 'An error occurred. Please try again later.';
-    }
+    });
 });

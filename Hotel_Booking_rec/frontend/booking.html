@@ -12,10 +12,10 @@
         
         <div class="form-container">
             <h2>Add New Booking</h2>
-            <form id="booking-form">
-                <!-- <label for="user_id">User ID:</label>
-                <input type="number" id="user_id" name="user_id" required> -->
-                
+            <form id="booking-form"> <!-- Ensure this matches the JavaScript code -->
+                <label for="user_id">User ID:</label>
+                <input type="number" id="user_id" name="user_id" required>
+               
                 <label for="hotel_name">Hotel Name:</label>
                 <input type="text" id="hotel_name" name="hotel_name" required>
                 
@@ -40,11 +40,12 @@
                 
                 <div class="button-container">
                     <button type="submit" id="save-button">Save</button>
-                    <button type="button" id="Complete">Complete</button>
+                    <button type="submit" id="complete-button">Complete</button>
                 </div>
-            </form>
-        </div>  
+            </form>            
+        </div>        <button type="button" onclick="history.back()" style="margin-top: 10px;">Back</button>
     </div>
     <script src="booking.js"></script>
+     
 </body>
 </html>

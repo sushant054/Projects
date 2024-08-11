@@ -19,20 +19,26 @@
             <div id="message" class="message"></div>
         </form>
 
-        <!-- Update Password Form (Initially hidden) -->
-        <div id="updatePasswordContainer" style="display: none;">
-            <h2>Update Password</h2>
-            <form id="updatePasswordForm">
-                <input type="hidden" id="usernameForUpdate" name="username">
-                <div class="input-group">
-                    <label for="newPassword">New Password</label>
-                    <input type="password" id="newPassword" name="newPassword" required>
-                </div>
-                <button type="submit">Update Password</button>
-                <div id="updateError" class="error"></div>
-                <div id="updateMessage" class="message"></div>
-            </form>
+       
+       <!-- Update Password Form (Initially hidden) -->
+<div id="updatePasswordContainer" style="display: none;">
+    <h2>Update Password</h2>
+    <form id="updatePasswordForm">
+        <input type="hidden" id="usernameForUpdate" name="username">
+        <div class="input-group">
+            <label for="newPassword">New Password</label>
+            <input type="password" id="newPassword" name="newPassword" required>
         </div>
+        <div class="input-group">
+            <label for="confirmNewPassword">Confirm New Password</label>
+            <input type="password" id="confirmNewPassword" name="confirmNewPassword" required>
+        </div>
+        <button type="submit">Update Password</button>
+        <div id="updateError" class="error"></div>
+        <div id="updateMessage" class="message"></div>
+    </form>
+</div>
+
 
         <div class="links">
             <a href="login.html">Back to Login</a>

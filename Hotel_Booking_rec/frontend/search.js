@@ -41,39 +41,50 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     });
 
+    function cleanObjectKeys(obj) {
+        const cleanedObj = {};
+        for (const key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                const cleanedKey = key.trim();
+                cleanedObj[cleanedKey] = obj[key];
+            }
+        }
+        return cleanedObj;
+    }
+    
     function displayHotelDetails(item) {
-        console.log('Full Item:', item);  // Log to check the structure of the item
-
+        const cleanedItem = cleanObjectKeys(item);
+        console.log('Cleaned Item:', cleanedItem);  // Log to check the cleaned structure
+    
         const detailsSection = document.getElementById('hotel-details');
-
-        // Update the HTML based on the actual key names
+    
         detailsSection.innerHTML = `
             <h2>Hotel Details</h2>
             
-            <p><strong>Hotel Name:</strong> ${item['Hotel Name'] || 'N/A'}</p>
-            <p><strong>Category:</strong> ${item['Category'] || 'N/A'}</p>
-            <p><strong>Address:</strong> ${item['Address'] || 'N/A'}</p>
-            <p><strong>Start Date:</strong> ${item['Start Date'] || 'N/A'}</p>
-            <p><strong>Expiry Date:</strong> ${item['Expiry Date'] || 'N/A'}</p>
-            <p><strong>Total Rooms:</strong> ${item['Total Rooms'] || 'N/A'}</p>
+            <p><strong>Hotel ID:</strong> ${cleanedItem['Hid'] || 'N/A'}</p>
+            <p><strong>Hotel Name:</strong> ${cleanedItem['Hotel Name'] || 'N/A'}</p>
+            <p><strong>Category:</strong> ${cleanedItem['Category'] || 'N/A'}</p>
+            <p><strong>Address:</strong> ${cleanedItem['Address'] || 'N/A'}</p>
+            <p><strong>Start Date:</strong> ${cleanedItem['Start Date'] || 'N/A'}</p>
+            <p><strong>Expiry Date:</strong> ${cleanedItem['Expiry Date'] || 'N/A'}</p>
+            <p><strong>Total Rooms:</strong> ${cleanedItem['Total Rooms'] || 'N/A'}</p>
             <button id="book-hotel" class="btn">Book Hotel</button>
         `;
-
-        // Ensure the button exists before adding an event listener
+    
         const bookButton = document.getElementById('book-hotel');
         if (bookButton) {
             bookButton.addEventListener('click', function() {
-                // Pass hotel name through URL query parameter
-                const bookingPageUrl = `booking.html?hotel_name=${encodeURIComponent(item['Hotel Name'] || '')}`;
+                const bookingPageUrl = `booking.html?hotel_id=${encodeURIComponent(cleanedItem['Hid'] || '')}&hotel_name=${encodeURIComponent(cleanedItem['Hotel Name'] || '')}`;
                 window.location.href = bookingPageUrl;
             });
         } else {
             console.error('Book Hotel button not found.');
         }
-
+    
         detailsSection.style.display = 'block';
     }
-
+    
+    
     // Function to close recommendations dropdown
     function closeRecommendations() {
         const recommendations = document.getElementById('recommendations');
