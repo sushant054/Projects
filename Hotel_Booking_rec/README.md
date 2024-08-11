@@ -1,12 +1,13 @@
 # Hotel Booking System
 ## Table of Contents
-1. Database Tables
-2. List of APIs
-3. API Documentation
+1. List of APIs
+2. API Documentation
+3. Database Tables
 4. List of Pages
 5. Strength in Node.js
 6. Download and Run the Project
 
+## List of APIs
 ## API Documentation
  here i have created these APIs
 1. Login API
@@ -30,8 +31,7 @@
  This table contains `user_id`, `name`, `username`,`password`,`phone_number`,`email` etc.
  ### Bookings
  This tables contains `booking_id`,`hotel_name`,`check_in`,`check_out`,`guest`,`room_type`,`payment`,`status` etc.
-## List of APIs
-
+ 
 ### User Authentication:
 `POST /v1/login` - Login API
 `POST /v1/signup`- Signup API
