@@ -7,28 +7,6 @@
 5. Strength in Node.js
 6. Download and Run the Project
 
-## Database Tables
-### users
- This table contains `user_id`, `name`, `username`,`password`,`phone_number`,`email` etc.
- ### Bookings
- This tables contains `booking_id`,`hotel_name`,`check_in`,`check_out`,`guest`,`room_type`,`payment`,`status` etc.
-## List of APIs
-### User Authentication:
-
-`POST /v1/login` - Login API
-`POST /v1/signup`- Signup API
-### Hotel Bookings:
-
-`GET /v1/hotel-bookings` - Retrieve hotel bookings
-
-`POST /api/bookings` - Add a new booking
-
-`POST /api/update-status` - Update the status of a booking
-
-`GET /api/bookings` - Fetch all bookings
-
-`DELETE /api/bookings/:id` - Delete a specific booking
-
 ## API Documentation
  here i have created these APIs
 1. Login API
@@ -46,6 +24,28 @@
 
 5. Booking Page: Allows users to select and book hotel.
 6. Show Booked Hotels Page: This page allows users to see booked hotel information also user able to delete this page. 
+
+## Database Tables
+### users
+ This table contains `user_id`, `name`, `username`,`password`,`phone_number`,`email` etc.
+ ### Bookings
+ This tables contains `booking_id`,`hotel_name`,`check_in`,`check_out`,`guest`,`room_type`,`payment`,`status` etc.
+## List of APIs
+
+### User Authentication:
+`POST /v1/login` - Login API
+`POST /v1/signup`- Signup API
+### Hotel Bookings:
+
+`GET /v1/hotel-bookings` - Retrieve hotel bookings
+
+`POST /api/bookings` - Add a new booking
+
+`POST /api/update-status` - Update the status of a booking
+
+`GET /api/bookings` - Fetch all bookings
+
+`DELETE /api/bookings/:id` - Delete a specific booking
 
 ## Strength in Node.js
 I have good enough knowledge of Node.js, which I demonstrated in my academic project where I designed MD files and APIs. My experience includes building RESTful APIs, handling database interactions using MySQL, and working with Node.js frameworks like Express.js.
