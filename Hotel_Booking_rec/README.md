@@ -9,7 +9,7 @@
 
 ## List of APIs
 ## API Documentation
- here i have created these APIs
+
 1. Login API
 2. Signup API
 3. Hotel Bookings API
