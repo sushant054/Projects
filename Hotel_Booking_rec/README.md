@@ -12,6 +12,7 @@
 3. Hotel Bookings API
 4. Bookings API
 5. Show and Delete Bookings API
+6. Admin-login API
 
 ## List of pages
 #### I have created these pages using tech.(HTML, CSS, JavaScrip, Nodejs, MYSQL)
