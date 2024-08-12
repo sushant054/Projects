@@ -55,8 +55,7 @@ I have good enough knowledge of Node.js, which I demonstrated in my academic pro
 1. Clone the Repository
 2. Install Dependencies - like `jsonwebtoken`, `bcrypt`..etc.
 3. Set Up the Database - To set up database refer file ./Backend/databasesecmd.sql   
-4. Run & Access the Application -
-Open your browser & navigate to http://localhost:3000
+4. Run & Access the Application - In backend find ./Backend/main.js and run this file using(nodemon main or node main.js) then Open your browser & navigate to http://localhost:3000
 ### Video of Application..
 #### https://drive.google.com/file/d/1wZ4YM94o20kwyT8rvt47tbk-eOQ4WEP4/view?usp=sharing
 
