@@ -25,6 +25,51 @@ Body
 }
 ```
 #### 400 - Bad Request - Incorrect Email/Password
-#### 403 - Forbidden
+#### 404 - Not Found- User does not exist
+#### 500 - Internal Server Error
+
+## Verify username API
+```
+POST /v1/verify-username
+```
+
+## Request Headers
+```
+Content-Type : application/json
+```
+ 
+## Request Body
+``` json 
+{
+    "username": "String"
+}
+
+```
+## Response
+#### 200 - Success
+#### 400 - Bad Request - Incorrect Email/Password
+#### 404 - Not Found- User does not exist
+#### 500 - Internal Server Error
+## Update password API
+```
+POST /v1/verify-username
+```
+
+## Request Headers
+```
+Content-Type : application/json
+```
+  
+## Request Body
+``` json 
+{
+    "username": "String"
+}
+
+```
+## Response
+#### 200 - Success
+ 
+#### 400 - Bad Request - Incorrect Email/Password
 #### 404 - Not Found- User does not exist
 #### 500 - Internal Server Error

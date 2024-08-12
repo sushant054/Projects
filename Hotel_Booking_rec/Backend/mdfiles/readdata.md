@@ -19,7 +19,7 @@ Content-Type : application/json
     {
         "booking_id": "String",
         "user_name": "String",
-        "hotel_id": "String",
+        "hotel_name": "String",
         "booking_date": "String",
         "check_in_date": "String",
         "check_out_date": "String",

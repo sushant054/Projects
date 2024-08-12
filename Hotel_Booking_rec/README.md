@@ -24,7 +24,7 @@
 4. Dashboard: Displays an overview of hotel bookings, also you can book hotel by searching near by area or any particular location here list of recommended hotels displays you can select one of them and book 
 
 5. Booking Page: Allows users to select and book hotel.
-6. Show Booked Hotels Page: This page allows users to see booked hotel information also user able to delete this page. 
+6. Show Booked Hotels Page: This page allows users to see booked hotel information also user able to delete this page and user can see only their own data.
 
 ## Database Tables
 ### users
@@ -48,7 +48,7 @@
 `DELETE /api/bookings/:id` - Delete a specific booking
 
 ## Strength in Node.js
-I have good enough knowledge of Node.js, which I demonstrated in my academic project where I designed MD files and APIs. My experience includes building RESTful APIs, handling database interactions using MySQL, and working with Node.js frameworks like Express.js.
+I have good enough knowledge of Node.js, which I demonstrated in my academic project where I designed MD files and APIs. My experience includes building RESTful APIs, handling database interactions using MySQL, and working with Node.js frameworks like Express.js. also i have done validation, authentication of apis using tokens.  
 
 ## Download and Run the Project 
 ### Prerequisites
@@ -60,6 +60,8 @@ I have good enough knowledge of Node.js, which I demonstrated in my academic pro
 3. Set Up the Database - To set up database refer file ./Backend/databasesecmd.sql   
 4. Run & Access the Application -
 Open your browser & navigate to http://localhost:3000
+### Video of Application..
+#### https://drive.google.com/file/d/1wZ4YM94o20kwyT8rvt47tbk-eOQ4WEP4/view?usp=sharing
 
 ## Visit My Other Projects 
 1. https://github.com/sushant054/Projects/tree/main/Elocalhood/backend

@@ -1,10 +1,12 @@
 # Booking API
-## Fetch all bookings api
-```
-GET /v1/bookings
-```
 
-## Request Headers
+## 1. Get User ID
+
+### Endpoint
+`GET /api/user-id`
+
+### Request Headers
+
 ```
 Content-Type : application/json
 ```
@@ -13,21 +15,12 @@ Content-Type : application/json
 
 #### 200 - Success
 ```json
-[
-    {
-        "booking_id": "String",
-        "hotel_name": "String",
-        "check_in": "String",
-        "check_out": "String",
-        "guest": "Number",
-        "room_type": "String",
-        "payment": "String",
-        "status": "String"
-    },
-    ...
-]
+{
+    "user_id": Number
+}
+
 ```
-#### 500 - Internal Server Error
+#### 401  Unauthorized- User not logged in or invalid token
 ########################################
 # Add a New Booking API
 ```
@@ -65,25 +58,23 @@ Content-Type : application/json
 ########################################
 # Update Booking Status API
 ```
-POST /v1/bookings
+POST /v1/update-status
 ```
 
 ## Request Headers
 ```
-Content-Type : application/json
+Authorization: Bearer <JWT Token>
+Content-Type: application/json
+
 ```
 
 ### Request Body
 ```
 {
-    "hotel_name": "String",
-    "check_in": "String",
-    "check_out": "String",
-    "guest": "Number",
-    "room_type": "String",
-    "payment": "String",   // Optional
-    "status": "String"    // Required
+    "booking_id": Number,
+    "status": "String" // Should be either "draft" or "complete"
 }
+
 
 ```
 ## Response
