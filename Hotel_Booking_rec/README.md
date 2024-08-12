@@ -17,7 +17,7 @@
 5. Show and Delete Bookings API
 
 ## List of pages
-
+#### I have created these pages using tech.(HTML, CSS, JavaScrip, Nodejs, MYSQL)
 1. Login Page: Allows users to log in to their accounts.
 2. Forgot Password: If user forget password user can simply change the password by clicking on forgot password.
 3. Signup Page: New users can register.
