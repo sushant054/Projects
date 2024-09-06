@@ -7,22 +7,8 @@ CREATE TABLE users (
     phone_number VARCHAR(15) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL UNIQUE
 );
--- 
- 
---Bookings
- 
+
 ---------
-CREATE TABLE Bookings (
-    booking_id INT AUTO_INCREMENT PRIMARY KEY,
-    hotel_name VARCHAR(100) NOT NULL,
-    check_in DATE NOT NULL,
-    check_out DATE NOT NULL,
-    guest INT NOT NULL,
-    room_type VARCHAR(50) NOT NULL,
-    payment DECIMAL(10, 2),
-    status ENUM('draft', 'complete') NOT NULL
-);
---
  
 CREATE TABLE hotelBooking (
     booking_id INT AUTO_INCREMENT PRIMARY KEY,

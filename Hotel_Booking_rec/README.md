@@ -1,23 +1,21 @@
 # Hotel Booking System
 ## Table of Contents
 1. List of APIs
-2. API Documentation
+2. List of Pages
 3. Database Tables
-4. List of Pages
-5. Strength in Node.js
-6. Download and Run the Project
+4. Strength in Node.js
+5. Download and Run the Project
 
 ## List of APIs
-## API Documentation
- here i have created these APIs
 1. Login API
 2. Signup API
 3. Hotel Bookings API
 4. Bookings API
 5. Show and Delete Bookings API
+6. Admin-login API
 
 ## List of pages
-
+#### I have created these pages using tech.(HTML, CSS, JavaScrip, Nodejs, MYSQL)
 1. Login Page: Allows users to log in to their accounts.
 2. Forgot Password: If user forget password user can simply change the password by clicking on forgot password.
 3. Signup Page: New users can register.
@@ -56,10 +54,9 @@ I have good enough knowledge of Node.js, which I demonstrated in my academic pro
 2. MySQL
 #### Steps to download
 1. Clone the Repository
-2. Install Dependencies
+2. Install Dependencies - like `jsonwebtoken`, `bcrypt`..etc.
 3. Set Up the Database - To set up database refer file ./Backend/databasesecmd.sql   
-4. Run & Access the Application -
-Open your browser & navigate to http://localhost:3000
+4. Run & Access the Application - In backend find ./Backend/main.js and run this file using(nodemon main or node main.js) then Open your browser & navigate to http://localhost:3000
 ### Video of Application..
 #### https://drive.google.com/file/d/1wZ4YM94o20kwyT8rvt47tbk-eOQ4WEP4/view?usp=sharing
 
