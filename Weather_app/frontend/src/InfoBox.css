@@ -1,0 +1,72 @@
+/* Ensures the InfoBox remains centered and doesn't shrink */
+.InfoBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    margin-top: -70px;
+}
+
+/* Card container styling */
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card styling */
+.cardContainer .MuiCard-root {
+    min-height: 300px;  
+    width: 345px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Card media (image) */
+.cardContainer .MuiCardMedia-root {
+    height: 140px;
+    width: 100%;
+}
+
+/* Card content styling */
+.cardContainer .MuiCardContent-root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 160px;
+}
+
+/* Loader overlay */
+.loader-overlay {
+    top: 50%;
+    left: 50%;
+    background: rgba(0, 0, 0, 0.5);  
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    z-index: 10;
+}
+
+/* Spinning Loader */
+.loader-icon {
+    font-size: 2rem;
+    color: white;
+    animation: spin 1s linear infinite;
+}
+
+/* Loading Animation */
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
